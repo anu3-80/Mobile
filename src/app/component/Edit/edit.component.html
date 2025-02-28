@@ -1,0 +1,40 @@
+<div class="container">
+    <h2 style="color:hsl(204, 100%, 50%);">Edit Device</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="device_name">Id</label>
+        <input type="text" id="id" [(ngModel)]="device.id" name="id" class="form-control" required />
+      </div>
+      <div class="form-group">
+        <label for="device_name">Device Name:</label>
+        <input type="text" id="device_name" [(ngModel)]="device.device_name" name="device_name" class="form-control" required />
+        <select [(ngModel)]="deviceNames" name="device_name" required>
+          <option value="" disabled>Select a Device</option>
+          <option *ngFor="let device of deviceNames" [value]="device">{{ device }}</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="number" id="price" [(ngModel)]="device.price" name="price" class="form-control" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="ram">RAM:</label>
+        <input type="text" id="ram" [(ngModel)]="device.ram" name="ram" class="form-control" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="storage">Storage:</label>
+        <input type="text" id="storage" [(ngModel)]="device.storage" name="storage" class="form-control" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="images">Image URL:</label>
+        <input type="text" id="images" [(ngModel)]="device.images" name="images" class="form-control" required />
+      </div>
+  <br>
+      <button type="submit" class="btn btn-success">Update</button>
+    </form>
+  </div>
+  
