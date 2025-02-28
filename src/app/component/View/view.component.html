@@ -1,0 +1,30 @@
+<table class="table table-success table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Device_Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Ram</th>
+        <th scope="col">Storage</th>
+        <th scope="col">Images</th>
+        <th scope="col">Action</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of store">
+        <td>{{data.id}}</td>
+        <td>{{data.device_name}}</td>
+        <td>{{data.price}}</td>
+        <td>{{data.ram}}</td>
+        <td>{{data.storage}}</td>
+        <td><img src={{data.images}} width="50" height="50"></td>
+        <td>
+          <button class="btn btn-primary">
+            <a [routerLink]="['/edit', data.id]" class="text-white">Edit</a>
+          </button>
+        </td>
+        <td><button class="btn btn-danger" (click)="deleteItem(data.id)">Delete</button></td>
+      </tr>
+  </table>
+ 
