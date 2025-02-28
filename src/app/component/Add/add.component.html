@@ -1,0 +1,41 @@
+<div class="register-container">
+  <h2 style="color: dodgerblue;">Add Details</h2>
+  <form #userForm="ngForm" (ngSubmit)="mobile(userForm)">
+    
+    <div>
+      <label>Id</label>
+      <input type="text" [(ngModel)]="id" name="id" placeholder="Enter your Id">
+    </div>
+
+    <div>
+      <label>Devicename</label>
+      <input type="text" [(ngModel)]="device_name" name="device_name" placeholder="Enter your Device name">
+      <select [(ngModel)]="device_name" name="device_name" required>
+        <option value="" disabled>Select a Device</option>
+        <option *ngFor="let device of deviceNames" [value]="device">{{ device }}</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Price</label>
+      <input type="text" [(ngModel)]="price" name="price" required>
+    </div>
+
+    <div>
+      <label>Ram</label>
+      <input type="text" [(ngModel)]="ram" name="ram" required>
+    </div>
+
+    <div>
+      <label>Storage</label>
+      <input type="text" [(ngModel)]="storage" name="storage" required>
+    </div>
+    <div>
+      <label>Images</label>
+      <input type="text" [(ngModel)]="images" name="images" required>
+    </div>
+    <button type="submit">Send</button>
+    <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  </form>
+</div>
